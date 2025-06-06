@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>간단 계산기</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    .calculator { display: inline-block; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; background: #f7f7f7; }
+    input[type="text"] { width: 170px; height: 35px; margin-bottom: 10px; font-size: 18px; text-align: right; }
+    button { width: 40px; height: 40px; font-size: 18px; margin: 4px; border: none; border-radius: 5px; background: #e0e0e0; cursor: pointer; }
+    button:active { background: #bdbdbd; }
+  </style>
+</head>
+<body>
+  <h2>간단 계산기</h2>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">÷</button>
+    <br>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">×</button>
+    <br>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">−</button>
+    <br>
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="press('+')">+</button>
+    <br>
+    <button onclick="clearDisplay()" style="width: 172px;">C</button>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+
+    function press(key) {
+      display.value += key;
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "오류";
+      }
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+  </s
